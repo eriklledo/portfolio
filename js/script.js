@@ -26,7 +26,7 @@ function linkAction() {
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const toggleSwitch = document.querySelector('.theme-switch');
     const currentTheme = localStorage.getItem('theme');
 
     // Verifica si l'usuari ja té una preferència guardada
