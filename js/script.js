@@ -51,3 +51,22 @@ sr.reveal('.skills-img', {delay: 40} )
 sr.reveal('.work-img', {interval: 20} )
 
 sr.reveal('.contact-input', {interval: 20} )
+
+
+
+// Animation SVG
+document.addEventListener('DOMContentLoaded', () => {
+    const animationContainer = document.getElementById('animation-container');
+
+    // Mostra l'animació durant 5 segons
+    setTimeout(() => {
+        animationContainer.classList.add('hide');
+    }, 5000); // 5000 ms = 5 segons
+
+    // Elimina l'animació del DOM després de la transició
+    animationContainer.addEventListener('transitionend', () => {
+        if (animationContainer.classList.contains('hide')) {
+            animationContainer.remove();
+        }
+    });
+});
