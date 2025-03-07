@@ -25,8 +25,34 @@ function linkAction() {
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
-// Scroll Reveal
 
+// Light/Dark Mode
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        if (currentTheme === 'light') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme);
+});
+
+// Scroll Reveal
 const sr = ScrollReveal({
     origin: 'top',
     distance: '80px',
@@ -58,12 +84,10 @@ sr.reveal('.contact-input', {interval: 20} )
 document.addEventListener('DOMContentLoaded', () => {
     const animationContainer = document.getElementById('animation-container');
 
-    // Mostra l'animació durant 5 segons
     setTimeout(() => {
         animationContainer.classList.add('hide');
-    }, 5000); // 5000 ms = 5 segons
+    }, 5000);
 
-    // Elimina l'animació del DOM després de la transició
     animationContainer.addEventListener('transitionend', () => {
         if (animationContainer.classList.contains('hide')) {
             animationContainer.remove();

@@ -34,6 +34,14 @@
     --primary5: #ffffff;
 }
 
+[data-theme="light"] {
+    --background-color: #ffffff;
+    --surface-color: #f0f0f0;
+    --text-color: #0E2431;
+    --text-color-light: #666666;
+    --border-color: #cccccc;
+}
+
 @media screen and (min-width: 768px) {
     :root {
         --big-font-size: 3.5rem;
@@ -124,7 +132,8 @@ img {
 }
 
 .nav-item { margin-bottom: var(--mb4); }
-.nav-link { position: relative; color: var(--text-color); }
+.nav-link { position: relative; 
+    color: var(--text-color); }
 .nav-link:hover { position: relative; }
 .nav-link:hover::after {
     position: absolute;
@@ -136,11 +145,69 @@ img {
     background-color: var(--first-color);
 }
 
-.nav-logo { color: var(--text-color); }
 .nav-toggle {
     color: var(--text-color);
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+/*Light/Dark Mode*/
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--first-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
 .active::after {
