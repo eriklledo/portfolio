@@ -25,12 +25,11 @@ function linkAction() {
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
-
-// Light/Dark Mode
 document.addEventListener('DOMContentLoaded', () => {
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const currentTheme = localStorage.getItem('theme');
 
+    // Verifica si l'usuari ja té una preferència guardada
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -39,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Funció per canviar entre dark i light mode
     function switchTheme(e) {
         if (e.target.checked) {
             document.documentElement.setAttribute('data-theme', 'light');
@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Escolta el canvi d'estat de l'interruptor
     toggleSwitch.addEventListener('change', switchTheme);
 });
 
