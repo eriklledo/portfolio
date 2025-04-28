@@ -85,13 +85,15 @@ sr.reveal('.contact-input', {interval: 20} )
 document.addEventListener('DOMContentLoaded', () => {
     const animationContainer = document.getElementById('animation-container');
 
-    setTimeout(() => {
-        animationContainer.classList.add('hide');
-    }, 5000);
+    if (animationContainer) {
+        setTimeout(() => {
+            animationContainer.classList.add('hide');
+        }, 5000);
 
-    animationContainer.addEventListener('transitionend', () => {
-        if (animationContainer.classList.contains('hide')) {
-            animationContainer.remove();
-        }
-    });
+        animationContainer.addEventListener('transitionend', () => {
+            if (animationContainer.classList.contains('hide')) {
+                animationContainer.remove();
+            }
+        });
+    }
 });

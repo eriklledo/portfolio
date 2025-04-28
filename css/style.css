@@ -242,15 +242,18 @@ input:checked + .slider:before {
 .home-social-icon:hover { color: var(--first-color); }
 
 .home-img {
-    position: relative;
-    right: 0;
-    bottom: 0;
+    position: absolute;
     width: 295px;
-    margin-right: 50px;
+    height: 295px;
+    margin: 0 auto;
 }
 
 .home-img img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
     border-radius: 50%;
+    margin: 0 auto var(--mb3);
 }
 
 .button {
@@ -398,7 +401,7 @@ input:checked + .slider:before {
 }
 
 /*MEDIA QUERIES*/
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .home-img {
         position: relative;
         width: 100%;
