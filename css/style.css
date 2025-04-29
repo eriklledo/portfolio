@@ -351,6 +351,7 @@ input:checked + .slider:before {
 }
 
 .skills-subtitle {
+    color: var(--first-color);
     margin-bottom: var(--mb2);
 }
 
